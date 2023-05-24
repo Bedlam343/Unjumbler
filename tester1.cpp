@@ -1,0 +1,201 @@
+#include <iostream>
+#include "AnagramSet.cpp"
+#include "Dictionary.cpp"
+#include "LetterBag.cpp"
+#include <iomanip>
+#include <fstream>
+#include <ctime>
+#include <string>
+
+#include <windows.h>
+#include <shlwapi.h>
+
+
+using namespace std;
+const int maxWords = 200000;
+string words[maxWords], reversedWords[maxWords];
+
+int tfine; // used for timer
+
+void resetTimer() ;  // reset the timer
+int getTime();  // get elapsed time
+
+// read file into wordList. Return number of words read in
+int readInWords(string wordList[],  int maxSize, string fileName) ;
+
+// return the reverse of s
+string reverse(const string & s);
+
+// count the number of words in wordList that are in d
+void countHits (string wordList[], int length,  const Dictionary & d);
+
+// write the dictionary to a file
+void toFile(const Dictionary & d, const string & fileName) ;
+
+// find palindromic words (bob) and palindrom pairs (live evil)
+void findMirrorAnagrams(const Dictionary & d, int wordCount);
+
+// count anagrams
+void countWordsWithNAnagrams(const  Dictionary & d, int N, string wordList[], int length);
+
+// remove words from dictionary
+void removalTest( Dictionary & d, int wordCount, int howMany) ;
+
+// insert words to dictionary
+void insertionTest( Dictionary & d, int wordCount);
+
+// find words whose letters match a given string
+void unScramble(const Dictionary & d);
+
+int main() {
+	int  tableSize = Dictionary::tableSize;
+
+	int wordCount = readInWords(words, maxWords,"words.txt");
+
+	static Dictionary d(words, wordCount);
+	cout << "Done creating dictionary" << endl;
+
+
+	unScramble(d);
+	cout << "Press any key to exit." << endl;
+	cin.get(); cin.get();
+	return 0;
+}
+
+
+void resetTimer() {
+	tfine = clock() * 1000.0 / CLOCKS_PER_SEC;
+}
+
+int getTime() {
+	return (clock() * 1000.0 / CLOCKS_PER_SEC) - tfine;
+}
+
+int readInWords(string wordList[],  int maxSize, string fileName) {
+    int i = 0;
+	string projectName = "AnagramSolver";
+	ifstream infile;
+
+    char buffer[MAX_PATH] = {0};
+    GetModuleFileNameA(NULL, buffer, MAX_PATH);
+	string path = (string)buffer;
+	i = path.find(projectName) + projectName.length();
+	path = path.substr(0, i);
+	path += "\\" + fileName;
+
+    infile.open(path);
+	if (!infile) cout << "Failed to open file" << endl;
+    while (infile && i < maxSize) {
+        string s;
+        infile >> s;
+        if (infile) {
+            wordList[i] = s;
+            i++;
+        }
+    }
+	infile.close();
+	return i;  // the number of words read in
+}
+
+void countHits (string wordList[], int length,  const Dictionary & d) {
+	resetTimer();
+	int count = 0;
+	for (int i = 0; i < length; i++)
+		if (d.contains(wordList[i]) )
+			count++;
+	cout << "Hit count = " << count
+		<< ",  elapsed time = " << getTime() << "." << endl << endl;
+}
+
+string reverse(const string & s) {
+	string t;
+	for (int i = s.length()-1; i >= 0; i--)
+		t.push_back(s[i]);
+	return t;
+}
+
+void toFile(const Dictionary & d, const string & fileName) {
+	ofstream out;
+	out.open(fileName.c_str());
+	cout << "Opened file " << fileName << "." << endl;
+	d.printDictionary(Dictionary::tableSize, out);  // first argument is maximum number of buckets to output
+	out.close();
+}
+
+// From a given wordList count the number of words that have n anagramatic forms.
+// There's a faster way of counting if we know d contains the same words
+// as wordList, but for the sake of testing we'll ignore that fact.
+void countWordsWithNAnagrams( const Dictionary & d, int n, string wordList[], int length) {
+	resetTimer();
+	int sum = 0;
+	for (int i = 0; i < length; i++)  {
+		if (d.getNumAnagrams(wordList[i]) == n)
+			sum++;
+	}
+	cout	<< "Found " << setw(7) << sum
+			<< " words with  " << setw(5) << n << " anagramatic form" << (n == 1 ? ". " : "s.") << " Elapsed time = "
+			<< getTime() << "." << endl;
+}
+// We'll call a mirror anagram a word for which the reverse of the word is also a word
+void findMirrorAnagrams(const Dictionary & d, int wordCount) {
+	static Dictionary pal;
+	pal.clear();
+	cout << "Creating reversed word list...";
+	for (int i = 0; i < wordCount; i++)
+		reversedWords[i] = reverse(words[i]);
+	cout << endl << "Counting mirror words.";
+	countHits(reversedWords, wordCount, d);
+	cout <<  "Creating mirror words dictionary...";
+	for (int i = 0; i < wordCount; i++)  {
+		if (d.contains(reversedWords[i])) {
+			pal.insertWord(words[i]);
+			pal.insertWord(reversedWords[i]);
+		}
+	}
+	cout << "done.  " << endl;
+	toFile(pal, "symmetric.txt");
+
+	cout << "Writing to file. " << endl << endl;
+}
+
+void removalTest( Dictionary & d, int wordCount, int howMany) {
+	resetTimer();
+	int removalCount = 0;
+	for (int i = 0, j = 0; j < howMany; i = (i + 22079) % wordCount, j++)
+		if (d.removeWord(words[i])) removalCount++;
+	cout << endl << "Done removing " << removalCount << " words, elapsed time = " << getTime() << "." << endl << endl;
+	cout << "All nonempty buckets of current dictionary are printed below. " << endl;
+	d.printDictionary();
+	countHits(words,wordCount,d);
+}
+
+
+void insertionTest( Dictionary & d, int wordCount) {
+	int insertionCount = 0;
+	resetTimer();
+	for (int i = wordCount - 1; i >= 0; i--)
+		if (d.insertWord(words[i])) insertionCount++;
+	cout << "Done inserting " << insertionCount << " words, elapsed time = " << getTime() << "." << endl << endl;
+	countHits(words,wordCount,d);
+
+}
+
+
+void unScramble(const Dictionary & d) {
+	string s;
+	do {
+		cout << endl << "Enter an anagram or q to quit: ";
+		cin >> s;
+		if (s != "q") {
+                cout << endl;
+				vector<string> v = d.getWords(s);
+				if (v.empty())
+					cout << "Not found. " << endl;
+				else
+					for (unsigned int i = 0; i < v.size(); i++) cout << v[i] << " ";
+
+				cout << endl;
+
+		}
+	} while (s != "q");
+}

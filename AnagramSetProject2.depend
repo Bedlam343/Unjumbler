@@ -1,0 +1,180 @@
+# depslib dependency file v1.0
+1605389023 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\addwords.cpp
+
+1605834664 c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\dictionary.h
+	<iostream>
+	"AnagramSet.h"
+
+1605597630 c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\anagramset.h
+	<vector>
+	"LetterBag-1.h"
+
+1605246291 c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\letterbag-1.h
+	<vector>
+	<iostream>
+
+1605834604 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\anagramset.cpp
+	<iostream>
+	"AnagramSet.h"
+	<algorithm>
+
+1605827543 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\dictionary.cpp
+	"fstream"
+	"Dictionary.h"
+
+1605047475 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\letterbag.cpp
+	"LetterBag-1.h"
+
+1605389033 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\main.cpp
+	<iostream>
+
+1605396133 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\smalltest.cpp
+	"Dictionary.h"
+	<iostream>
+	<fstream>
+
+1605833974 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\tester.cpp
+	<iostream>
+	"AnagramSet.h"
+	"Dictionary.h"
+	<iomanip>
+	<fstream>
+	<ctime>
+
+1605833974 source:c:\users\jasjit kharod\onedrive\computer science\comp sci\csci 20\anagramsetproject2\driver.cpp
+	<iostream>
+	"Dictionary.h"
+
+1605389023 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\addwords.cpp
+
+1605834604 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\anagramset.cpp
+	<iostream>
+	"AnagramSet.h"
+	<algorithm>
+
+1605597630 c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\anagramset.h
+	<vector>
+	"LetterBag-1.h"
+
+1605246291 c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\letterbag-1.h
+	<vector>
+	<iostream>
+
+1606710512 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\dictionary.cpp
+	"fstream"
+	"Dictionary.h"
+
+1605834664 c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\dictionary.h
+	<iostream>
+	"AnagramSet.h"
+
+1605833974 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\driver.cpp
+	<iostream>
+	"Dictionary.h"
+
+1605047475 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\letterbag.cpp
+	"LetterBag-1.h"
+
+1605389033 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\main.cpp
+	<iostream>
+
+1605396133 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\smalltest.cpp
+	"Dictionary.h"
+	<iostream>
+	<fstream>
+
+1605833974 source:c:\users\jasjit kharod\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\tester.cpp
+	<iostream>
+	"AnagramSet.h"
+	"Dictionary.h"
+	<iomanip>
+	<fstream>
+	<ctime>
+
+1605389023 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\addwords.cpp
+
+1605834604 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\anagramset.cpp
+	<iostream>
+	"AnagramSet.h"
+	<algorithm>
+
+1605597630 c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\anagramset.h
+	<vector>
+	"LetterBag-1.h"
+
+1605246291 c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\letterbag-1.h
+	<vector>
+	<iostream>
+
+1606710512 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\dictionary.cpp
+	"fstream"
+	"Dictionary.h"
+
+1605834664 c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\dictionary.h
+	<iostream>
+	"AnagramSet.h"
+
+1605833974 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\driver.cpp
+	<iostream>
+	"Dictionary.h"
+
+1605047475 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\letterbag.cpp
+	"LetterBag-1.h"
+
+1605389033 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\main.cpp
+	<iostream>
+
+1605396133 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\smalltest.cpp
+	"Dictionary.h"
+	<iostream>
+	<fstream>
+
+1605833974 source:c:\users\jagik\onedrive\computer science\computer science classes\csci 20\anagramsetproject2\tester.cpp
+	<iostream>
+	"AnagramSet.h"
+	"Dictionary.h"
+	<iomanip>
+	<fstream>
+	<ctime>
+
+1605392623 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\addwords.cpp
+
+1605838204 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\anagramset.cpp
+	<iostream>
+	"AnagramSet.h"
+	<algorithm>
+
+1605601230 c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\anagramset.h
+	<vector>
+	"LetterBag-1.h"
+
+1605249891 c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\letterbag-1.h
+	<vector>
+	<iostream>
+
+1605051075 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\letterbag.cpp
+	"LetterBag-1.h"
+
+1605392633 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\main.cpp
+	<iostream>
+
+1605399733 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\smalltest.cpp
+	"Dictionary.h"
+	<iostream>
+	<fstream>
+
+1605838264 c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\dictionary.h
+	<iostream>
+	"AnagramSet.h"
+
+1657133506 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\dictionary.cpp
+	"fstream"
+	"Dictionary.h"
+
+1656992046 source:c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\driver.cpp
+	<iostream>
+	"LetterBag.cpp"
+
+1605051075 c:\users\jagik\onedrive\cs chabot\csci 20\anagramsetproject2\letterbag.cpp
+	"LetterBag-1.h"
+
